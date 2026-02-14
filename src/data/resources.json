@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Law and the New Commons",
+    "author": "A. R. Delaine",
+    "year": 2018,
+    "type": "book",
+    "topicTags": ["commons", "governance", "property"],
+    "level": "intermediate",
+    "status": "established",
+    "annotation": "A field guide to commons-oriented legal architectures, with examples from municipal and cooperative governance.",
+    "citation": "Delaine, A. R. (2018). Law and the New Commons. Meridian Press."
+  },
+  {
+    "title": "Constitutional Imagination in Digital Polities",
+    "author": "Mina Okafor",
+    "year": 2022,
+    "type": "paper",
+    "topicTags": ["constitutional law", "technology", "governance"],
+    "level": "advanced",
+    "status": "speculative",
+    "annotation": "Explores constitutional design patterns for online civic institutions and jurisdictional overlap.",
+    "citation": "Okafor, M. (2022). Constitutional imagination in digital polities. Journal of Civic Systems, 14(2), 55-88."
+  },
+  {
+    "title": "Jurisprudence for Beginners",
+    "author": "Leila Tann",
+    "type": "video",
+    "topicTags": ["jurisprudence", "legal theory"],
+    "level": "beginner",
+    "status": "established",
+    "annotation": "A concise lecture introducing schools of legal thought and practical pathways into legal reasoning.",
+    "citation": "Tann, L. (Producer). (2021). Jurisprudence for beginners [Video]. ULS Open Lectures."
+  },
+  {
+    "title": "Bioregional Rights and River Personhood",
+    "author": "Nikhil Santos",
+    "year": 2020,
+    "type": "paper",
+    "topicTags": ["environmental law", "rights of nature", "comparative law"],
+    "level": "intermediate",
+    "status": "established",
+    "annotation": "Comparative review of river-personhood cases with implementation lessons for local legal systems.",
+    "citation": "Santos, N. (2020). Bioregional rights and river personhood. Comparative Environmental Law Review, 9(3), 201-233."
+  }
+]
