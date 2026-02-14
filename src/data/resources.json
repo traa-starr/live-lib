@@ -1,10 +1,14 @@
 [
   {
+ codex/create-living-library-module-with-react-93kurp
     "id": "law-new-commons",
+
+ main
     "title": "Law and the New Commons",
     "author": "A. R. Delaine",
     "year": 2018,
     "type": "book",
+ codex/create-living-library-module-with-react-93kurp
     "tags": ["commons", "governance", "property"],
     "level": "intermediate",
     "status": "established",
@@ -15,10 +19,20 @@
   },
   {
     "id": "constitutional-imagination-digital-polities",
+
+    "topicTags": ["commons", "governance", "property"],
+    "level": "intermediate",
+    "status": "established",
+    "annotation": "A field guide to commons-oriented legal architectures, with examples from municipal and cooperative governance.",
+    "citation": "Delaine, A. R. (2018). Law and the New Commons. Meridian Press."
+  },
+  {
+ main
     "title": "Constitutional Imagination in Digital Polities",
     "author": "Mina Okafor",
     "year": 2022,
     "type": "paper",
+ codex/create-living-library-module-with-react-93kurp
     "tags": ["constitutional law", "technology", "governance"],
     "level": "advanced",
     "status": "speculative",
@@ -43,10 +57,30 @@
   },
   {
     "id": "bioregional-rights-river-personhood",
+
+    "topicTags": ["constitutional law", "technology", "governance"],
+    "level": "advanced",
+    "status": "speculative",
+    "annotation": "Explores constitutional design patterns for online civic institutions and jurisdictional overlap.",
+    "citation": "Okafor, M. (2022). Constitutional imagination in digital polities. Journal of Civic Systems, 14(2), 55-88."
+  },
+  {
+    "title": "Jurisprudence for Beginners",
+    "author": "Leila Tann",
+    "type": "video",
+    "topicTags": ["jurisprudence", "legal theory"],
+    "level": "beginner",
+    "status": "established",
+    "annotation": "A concise lecture introducing schools of legal thought and practical pathways into legal reasoning.",
+    "citation": "Tann, L. (Producer). (2021). Jurisprudence for beginners [Video]. ULS Open Lectures."
+  },
+  {
+ main
     "title": "Bioregional Rights and River Personhood",
     "author": "Nikhil Santos",
     "year": 2020,
     "type": "paper",
+ codex/create-living-library-module-with-react-93kurp
     "tags": ["environmental law", "rights of nature", "comparative law"],
     "level": "intermediate",
     "status": "established",
@@ -54,5 +88,12 @@
     "citation": "Santos, N. (2020). Bioregional rights and river personhood. Comparative Environmental Law Review, 9(3), 201-233.",
     "url": "https://example.com/river-personhood",
     "impact": 82
+
+    "topicTags": ["environmental law", "rights of nature", "comparative law"],
+    "level": "intermediate",
+    "status": "established",
+    "annotation": "Comparative review of river-personhood cases with implementation lessons for local legal systems.",
+    "citation": "Santos, N. (2020). Bioregional rights and river personhood. Comparative Environmental Law Review, 9(3), 201-233."
+ main
   }
 ]
