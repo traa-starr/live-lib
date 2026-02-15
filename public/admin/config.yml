@@ -1,0 +1,61 @@
+backend:
+  name: github
+  repo: your-org/live-lib
+  branch: feat/premium-ui-v1
+
+publish_mode: editorial_workflow
+media_folder: public/media
+public_folder: /media
+
+collections:
+  - name: resources
+    label: Resources
+    folder: content/resources
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Type, name: type, widget: select, options: [book, article, video, podcast, tool] }
+      - { label: Tags, name: tags, widget: list }
+      - { label: URL, name: url, widget: string }
+      - { label: Creator, name: creator, widget: string }
+      - { label: Year, name: year, widget: number }
+      - { label: Description, name: description, widget: text }
+      - { label: Cover, name: cover, widget: string, required: false }
+      - label: Embeds
+        name: embeds
+        widget: list
+        required: false
+        fields:
+          - { label: Kind, name: kind, widget: select, options: [youtube, vimeo, spotify, soundcloud, image, audio, link, quote] }
+          - { label: URL, name: url, widget: string, required: false }
+          - { label: Title, name: title, widget: string, required: false }
+          - { label: Caption, name: caption, widget: text, required: false }
+      - { label: Featured, name: featured, widget: boolean, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: transmissions
+    label: Transmissions
+    folder: content/transmissions
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Date, name: date, widget: datetime, date_format: 'YYYY-MM-DD', time_format: false }
+      - { label: Tags, name: tags, widget: list }
+      - { label: Summary, name: summary, widget: text }
+      - { label: Cover, name: cover, widget: string, required: false }
+      - { label: Audio, name: audio, widget: string, required: false }
+      - { label: Video, name: video, widget: string, required: false }
+      - label: Embeds
+        name: embeds
+        widget: list
+        required: false
+        fields:
+          - { label: Kind, name: kind, widget: select, options: [youtube, vimeo, spotify, soundcloud, image, audio, link, quote] }
+          - { label: URL, name: url, widget: string, required: false }
+          - { label: Title, name: title, widget: string, required: false }
+          - { label: Caption, name: caption, widget: text, required: false }
+      - { label: Body, name: body, widget: markdown }
