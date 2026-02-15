@@ -1,4 +1,5 @@
-const transmissionModules = import.meta.glob('../content/transmissions/*.md', { as: 'raw', eager: true });
+const transmissionModules = import.meta.glob('../content/transmissions/*.md', { query: '?raw', import: 'default', eager: true }
+);
 
 const slugify = (text = '') =>
   text
