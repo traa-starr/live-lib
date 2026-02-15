@@ -1,86 +1,51 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ExternalLink, X } from 'lucide-react';
+import Button from '../ui/Button';
 
-export default function ResourceDetailModal({ resource, onClose }) {
-  if (!resource) return null;
-
-  const tags = Array.isArray(resource.tags) ? resource.tags : [];
-  const meta = [
-    resource.type ? { label: 'Type', value: resource.type } : null,
-    resource.source ? { label: 'Source', value: resource.source } : null,
-    resource.author ? { label: 'Author', value: resource.author } : null,
-    resource.year ? { label: 'Year', value: String(resource.year) } : null
-  ].filter(Boolean);
+export default function ResourceDetailModal({ resource, open, onOpenChange }) {
+  const reduceMotion = useReducedMotion();
 
   return (
     <AnimatePresence>
-      <motion.div
-        className="modal-overlay"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        onMouseDown={(e) => {
-          if (e.target === e.currentTarget) onClose?.();
-        }}
-      >
+      {open && resource && (
         <motion.div
-          className="modal-card"
-          role="dialog"
-          aria-modal="true"
-          aria-label={resource.title || 'Resource details'}
-          initial={{ opacity: 0, y: 14, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 14, scale: 0.98 }}
-          transition={{ duration: 0.18, ease: 'easeOut' }}
+          className="fixed inset-0 z-50 grid place-items-center bg-black/60 p-4 backdrop-blur-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onMouseDown={(event) => event.target === event.currentTarget && onOpenChange(false)}
         >
-          <header className="modal-header">
-            <div className="modal-title-wrap">
-              <p className="modal-kicker">{resource.category || 'Resource'}</p>
-              <h3 className="modal-title">{resource.title}</h3>
-            </div>
-
-            <button className="icon-btn" onClick={onClose} aria-label="Close">
-              <X size={18} />
-            </button>
-          </header>
-
-          {resource.description ? <p className="modal-description">{resource.description}</p> : null}
-
-          {meta.length ? (
-            <div className="modal-meta">
-              {meta.map((item) => (
-                <div key={item.label} className="meta-row">
-                  <span className="meta-label">{item.label}</span>
-                  <span className="meta-value">{item.value}</span>
-                </div>
-              ))}
-            </div>
-          ) : null}
-
-          {tags.length ? (
-            <div className="modal-tags">
-              {tags.map((t) => (
-                <span key={t} className="tag">
-                  {t}
-                </span>
-              ))}
-            </div>
-          ) : null}
-
-          <footer className="modal-footer">
-            {resource.url ? (
-              <a className="primary-btn" href={resource.url} target="_blank" rel="noreferrer">
-                <span>Open source</span>
-                <ExternalLink size={16} />
-              </a>
-            ) : (
-              <button className="primary-btn" onClick={onClose}>
-                Close
+          <motion.div
+            className="w-full max-w-2xl rounded-2xl border border-white/10 bg-[var(--panel)] p-6 text-[var(--text)] shadow-2xl"
+            initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 14, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 10, scale: 0.98 }}
+            transition={{ duration: reduceMotion ? 0 : 0.2 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label={resource.title}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{resource.type}</p>
+                <h3 className="mt-2 text-2xl font-semibold">{resource.title}</h3>
+              </div>
+              <button className="rounded-lg border border-white/10 p-2 text-slate-300 hover:bg-white/10" onClick={() => onOpenChange(false)}>
+                <X size={18} />
               </button>
-            )}
-          </footer>
+            </div>
+
+            <p className="mt-4 text-sm leading-relaxed text-slate-200">{resource.annotation}</p>
+            <p className="mt-3 text-sm text-slate-300">{resource.citation}</p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              <a href={resource.url} target="_blank" rel="noreferrer"><Button><ExternalLink size={14} />Open source link</Button></a>
+              <a href={resource.url} target="_blank" rel="noreferrer"><Button variant="secondary">Open in new tab</Button></a>
+              <Button variant="ghost" onClick={() => onOpenChange(false)}>Close</Button>
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      )}
     </AnimatePresence>
   );
 }
