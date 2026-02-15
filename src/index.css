@@ -3,13 +3,15 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: dark;
   --bg: #04070f;
-  --panel: rgba(9, 14, 28, 0.82);
-  --panel2: rgba(255, 255, 255, 0.08);
+  --panel: #0b1022;
+  --panel2: #121a33;
   --text: #f3f6ff;
-  --muted: #b7c1d8;
-  --border: rgba(255, 255, 255, 0.2);
+  --muted: #afbbd9;
+  --border: #273254;
   --accent: #58e6ff;
+  --ring: rgba(88, 230, 255, 0.6);
 }
 
 * { box-sizing: border-box; }
@@ -27,8 +29,51 @@ body {
 a { color: inherit; }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
+}
+
+input,
+select,
+textarea {
+  background: var(--panel2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 1px;
+}
+
+select option {
+  background: #0b1022;
+  color: #e8eeff;
+}
+
+@keyframes llSelectIn {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes llSelectOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(-2px) scale(0.98); }
+}
+
+.ll-select-content[data-state='open'] {
+  animation: llSelectIn 0.16s ease-out;
+}
+
+.ll-select-content[data-state='closed'] {
+  animation: llSelectOut 0.12s ease-in;
 }
 
 ::selection {

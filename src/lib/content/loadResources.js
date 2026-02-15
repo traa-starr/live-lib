@@ -19,5 +19,11 @@ export function loadResources() {
         text: markdownToPlain(content),
       };
     })
-    .sort((a, b) => (b.featured === true ? 1 : 0) - (a.featured === true ? 1 : 0) || b.year - a.year);
+    .sort((a, b) => {
+      const featuredScore = (b.featured === true ? 1 : 0) - (a.featured === true ? 1 : 0);
+      if (featuredScore !== 0) return featuredScore;
+      const yearScore = (b.year || 0) - (a.year || 0);
+      if (yearScore !== 0) return yearScore;
+      return a.title.localeCompare(b.title);
+    });
 }

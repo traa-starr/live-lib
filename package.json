@@ -6,11 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "content:check": "node scripts/validate-content.mjs",
+    "test": "npm run content:check"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-select": "^2.1.2",
     "clsx": "^2.1.1",
+    "fuse.js": "^7.1.0",
     "framer-motion": "^11.11.9",
     "lucide-react": "^0.453.0",
     "marked": "^13.0.2",
@@ -21,6 +25,7 @@
     "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",

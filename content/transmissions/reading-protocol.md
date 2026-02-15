@@ -1,30 +1,27 @@
 ---
 title: "Reading Protocol for Applied Minds"
 slug: "reading-protocol"
-date: "2026-01-12"
-tags:
-  - reading
-  - synthesis
-summary: "A compact protocol for converting reading into durable decisions and repeatable behavior."
-cover: "/media/reading-protocol.jpg"
-video: "https://www.youtube.com/watch?v=jNQXAC9IVRw"
+date: "2026-02-05"
+tags: ["reading","synthesis","workflow"]
+summary: "A compact method for turning any resource into one concrete action."
+cover: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1600&q=80"
 embeds:
-  - kind: quote
-    title: "Protocol"
-    caption: "If it doesn't change a choice, it wasn't integrated."
+  - type: "youtube"
+    url: "https://www.youtube-nocookie.com/embed/Wy1paLXRTYI"
+    title: "Fast technical primer example"
 ---
-# Reading Protocol for Applied Minds
+## Protocol
 
-Reading becomes meaningful when it changes what you notice, decide, and execute.
+When you open a new resource, do this in order:
 
-## Step one: frame intent
+1. Define the question you need answered.
+2. Extract only the high-leverage points.
+3. Convert one point into a scheduled action.
 
-Name the decision domain before you read.
+## Integration rule
 
-## Step two: mark leverage
+If a resource does not change a decision, it has not been integrated yet.
 
-Track ideas that can alter your next seven days.
+## Cadence
 
-### Step three: commit
-
-Translate one insight into one scheduled action.
+Run this loop weekly. Low drama beats high intensity.

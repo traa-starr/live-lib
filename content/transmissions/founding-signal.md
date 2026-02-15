@@ -1,30 +1,28 @@
 ---
 title: "Founding Signal"
 slug: "founding-signal"
-date: "2026-01-05"
-tags:
-  - orientation
-  - craft
-summary: "The first transmission defines the Living Library as an active practice, not a static archive."
-cover: "/media/founding-signal.jpg"
-audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+date: "2026-02-01"
+tags: ["orientation","philosophy","craft"]
+summary: "The Living Library is a decision system: calm inputs, clear synthesis, faster execution."
+cover: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80"
 embeds:
-  - kind: vimeo
-    url: "https://vimeo.com/76979871"
-    title: "Studio field note"
+  - type: "link"
+    url: "https://en.wikipedia.org/wiki/Knowledge_management"
+    title: "Knowledge management baseline"
+    caption: "A practical baseline for treating knowledge work as systems design."
 ---
-# Founding Signal
+## Why this exists
 
-The library exists to keep your best ideas close to daily action.
+A library is not a scrapbook. It is an operational surface for better choices.
 
-## The premise
+The goal is simple:
 
-A living library is not about collecting links. It is about sequencing ideas into useful motion.
+1. Capture only what is high-signal.
+2. Distill it into reusable language.
+3. Retrieve the right idea fast when pressure is real.
 
-### Working definition
+## What makes this different
 
-Capture less. Distill more. Return often.
-
-## Initial protocol
-
-Choose one resource this week and produce one concrete operational change from it.
+- Every entry is structured markdown with frontmatter.
+- Search spans titles, tags, summaries, and content text.
+- Transmissions explain how to use the system, not just what to collect.

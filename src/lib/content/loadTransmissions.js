@@ -22,5 +22,10 @@ export function loadTransmissions() {
         headings: extractHeadings(body),
       };
     })
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+    .sort((a, b) => {
+      const dateA = a.date ? new Date(a.date).getTime() : 0;
+      const dateB = b.date ? new Date(b.date).getTime() : 0;
+      if (dateB !== dateA) return dateB - dateA;
+      return a.title.localeCompare(b.title);
+    });
 }

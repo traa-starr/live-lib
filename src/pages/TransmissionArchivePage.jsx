@@ -17,12 +17,17 @@ export default function TransmissionArchivePage({ reduceMotion }) {
 
         <div className="grid gap-3 md:grid-cols-2">
           {posts.map((post, index) => (
-            <motion.div key={post.slug} initial={reduceMotion ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.04 }}>
+            <motion.div
+              key={post.slug}
+              initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.04 }}
+            >
               <Link to={`/transmissions/${post.slug}`}>
                 <Card className="h-full transition hover:border-[var(--accent)]/60">
-                  <p className="text-xs text-[var(--muted)]">{post.date} • {post.readingTime}</p>
+                  <p className="text-xs text-[var(--muted)]">{post.date} - {post.readingTime}</p>
                   <h3 className="mt-2 text-xl font-semibold">{post.title}</h3>
-                  <p className="mt-2 text-sm text-slate-300">{post.summary}</p>
+                  <p className="mt-2 text-sm text-[var(--muted)]">{post.summary}</p>
                 </Card>
               </Link>
             </motion.div>
