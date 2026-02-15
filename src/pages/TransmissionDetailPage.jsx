@@ -1,21 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Link, useParams } from 'react-router-dom';
+import RouteTransition from '../components/RouteTransition';
 import { getTransmissions } from '../lib/transmissions';
-import Card from '../ui/Card';
-import Badge from '../ui/Badge';
 import Button from '../ui/Button';
+import Card from '../ui/Card';
 
 const posts = getTransmissions();
 
-export default function TransmissionDetailPage() {
+function extractHeadings(body) {
+  return body
+    .split('\n')
+    .filter((line) => /^##\s+/.test(line))
+    .map((line) => line.replace(/^##\s+/, '').trim());
+}
+
+export default function TransmissionDetailPage({ reduceMotion }) {
   const { slug } = useParams();
   const post = posts.find((item) => item.slug === slug);
-  const index = posts.findIndex((item) => item.slug === slug);
-  const previous = posts[index + 1];
-  const next = posts[index - 1];
   const [progress, setProgress] = useState(0);
+
+  const headings = useMemo(() => (post ? extractHeadings(post.body) : []), [post]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -28,26 +34,39 @@ export default function TransmissionDetailPage() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  if (!post) return <Card>Transmission not found.</Card>;
+  if (!post) {
+    return <Card>Transmission not found.</Card>;
+  }
 
   return (
-    <article className="space-y-4">
-      <div className="sticky top-0 z-10 h-1 w-full rounded-full bg-slate-200 dark:bg-white/10">
-        <div className="h-full rounded-full bg-sky-500" style={{ width: `${progress}%` }} />
-      </div>
-      <Card className="prose prose-slate max-w-none dark:prose-invert">
-        <Link to="/transmissions"><Button variant="ghost">Back to archive</Button></Link>
-        <p className="mt-2 text-xs uppercase tracking-wider text-slate-500">{post.date}</p>
-        <h1>{post.title}</h1>
-        <div className="not-prose my-3 flex flex-wrap gap-1">
-          {post.tags.map((tag) => <Badge key={`${post.slug}-${tag}`}>{tag}</Badge>)}
+    <RouteTransition reduceMotion={reduceMotion}>
+      <div className="space-y-4">
+        <div className="sticky top-0 z-30 h-1 w-full overflow-hidden rounded-full bg-white/10">
+          <div className="h-full bg-[var(--accent)] transition-[width] duration-150" style={{ width: `${progress}%` }} />
         </div>
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.body}</ReactMarkdown>
-      </Card>
-      <div className="grid gap-3 sm:grid-cols-2">
-        <Card>{previous ? <Link to={`/transmissions/${previous.slug}`}>Previous: {previous.title}</Link> : <span>No previous post</span>}</Card>
-        <Card>{next ? <Link to={`/transmissions/${next.slug}`}>Next: {next.title}</Link> : <span>No newer post</span>}</Card>
+
+        <div className="grid gap-4 lg:grid-cols-[1fr_240px]">
+          <Card className="p-8">
+            <Link to="/transmissions"><Button variant="ghost">Back to archive</Button></Link>
+            <p className="mt-4 text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{post.date}</p>
+            <h1 className="mt-2 text-4xl font-semibold leading-tight">{post.title}</h1>
+            <article className="mt-6 space-y-4 text-base leading-8 text-slate-200 [&>blockquote]:border-l-2 [&>blockquote]:border-[var(--accent)] [&>blockquote]:pl-4 [&>h2]:mt-8 [&>h2]:text-2xl [&>h2]:font-semibold">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.body}</ReactMarkdown>
+            </article>
+          </Card>
+
+          {headings.length > 0 && (
+            <Card className="h-fit lg:sticky lg:top-24">
+              <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">On this page</p>
+              <ul className="mt-3 space-y-2 text-sm text-slate-300">
+                {headings.map((heading) => (
+                  <li key={heading}>{heading}</li>
+                ))}
+              </ul>
+            </Card>
+          )}
+        </div>
       </div>
-    </article>
+    </RouteTransition>
   );
 }
