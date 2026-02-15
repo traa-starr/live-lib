@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import RouteTransition from '../components/RouteTransition';
-import { getTransmissions } from '../lib/transmissions';
-import Badge from '../ui/Badge';
+import { loadTransmissions } from '../lib/content/loadTransmissions';
 import Card from '../ui/Card';
 
-const posts = getTransmissions();
+const posts = loadTransmissions();
 
 export default function TransmissionArchivePage({ reduceMotion }) {
   return (
@@ -13,19 +12,17 @@ export default function TransmissionArchivePage({ reduceMotion }) {
       <div className="space-y-4">
         <Card className="p-8">
           <p className="text-xs uppercase tracking-[0.24em] text-[var(--muted)]">Transmission archive</p>
-          <h1 className="mt-3 text-3xl font-semibold">Editorial dispatches for daily alignment.</h1>
+          <h1 className="mt-2 text-3xl font-semibold">Field notes, protocols, and decision memos.</h1>
         </Card>
 
         <div className="grid gap-3 md:grid-cols-2">
           {posts.map((post, index) => (
-            <motion.div key={post.slug} initial={reduceMotion ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.05 }}>
+            <motion.div key={post.slug} initial={reduceMotion ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.04 }}>
               <Link to={`/transmissions/${post.slug}`}>
-                <Card className="h-full transition hover:-translate-y-1 hover:border-[var(--accent)]/60">
-                  <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted)]">{post.date}</p>
+                <Card className="h-full transition hover:border-[var(--accent)]/60">
+                  <p className="text-xs text-[var(--muted)]">{post.date} • {post.readingTime}</p>
                   <h3 className="mt-2 text-xl font-semibold">{post.title}</h3>
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {post.tags.map((tag) => <Badge key={`${post.slug}-${tag}`} tone="info">{tag}</Badge>)}
-                  </div>
+                  <p className="mt-2 text-sm text-slate-300">{post.summary}</p>
                 </Card>
               </Link>
             </motion.div>
