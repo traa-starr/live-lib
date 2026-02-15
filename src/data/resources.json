@@ -1,0 +1,72 @@
+[
+  {
+    "id": "feeling-is-the-secret",
+    "title": "Feeling Is the Secret",
+    "author": "Neville Goddard",
+    "year": 1944,
+    "type": "book",
+    "tags": ["imagination", "assumption", "manifestation"],
+    "level": "beginner",
+    "status": "classic",
+    "annotation": "A short, foundational text on how feeling and assumption shape experience.",
+    "citation": "Goddard, Neville. Feeling Is the Secret. 1944.",
+    "url": "https://www.nevillegoddardbooks.com/free-books-and-lectures/neville-goddard-free-book-feeling-is-the-secret",
+    "impact": 95
+  },
+  {
+    "id": "power-of-awareness",
+    "title": "The Power of Awareness",
+    "author": "Neville Goddard",
+    "year": 1952,
+    "type": "book",
+    "tags": ["consciousness", "identity", "assumption"],
+    "level": "intermediate",
+    "status": "classic",
+    "annotation": "Practical chapters on living from the wish fulfilled.",
+    "citation": "Goddard, Neville. The Power of Awareness. 1952.",
+    "url": "https://www.nevillegoddardbooks.com/free-books-and-lectures/neville-goddard-free-book-the-power-of-awareness",
+    "impact": 90
+  },
+  {
+    "id": "ask-and-it-is-given",
+    "title": "Ask and It Is Given",
+    "author": "Esther & Jerry Hicks",
+    "year": 2004,
+    "type": "book",
+    "tags": ["alignment", "vibration", "emotions", "abraham-hicks"],
+    "level": "beginner",
+    "status": "established",
+    "annotation": "A practical path for emotional guidance, alignment, and deliberate creation.",
+    "citation": "Hicks, Esther and Jerry. Ask and It Is Given. 2004.",
+    "url": "https://www.abraham-hicks.com/",
+    "impact": 88
+  },
+  {
+    "id": "power-of-now",
+    "title": "The Power of Now",
+    "author": "Eckhart Tolle",
+    "year": 1997,
+    "type": "book",
+    "tags": ["presence", "ego", "mindfulness"],
+    "level": "beginner",
+    "status": "classic",
+    "annotation": "Presence as a practice, not a mood. Quieting the compulsive mind.",
+    "citation": "Tolle, Eckhart. The Power of Now. 1997.",
+    "url": "https://eckharttolle.com/power-of-now-excerpt/",
+    "impact": 92
+  },
+  {
+    "id": "mlk-letter-birmingham",
+    "title": "Letter from Birmingham Jail",
+    "author": "Martin Luther King Jr.",
+    "year": 1963,
+    "type": "essay",
+    "tags": ["justice", "ethics", "courage", "language"],
+    "level": "intermediate",
+    "status": "classic",
+    "annotation": "Moral clarity and rhetoric — power that doesn’t abandon love.",
+    "citation": "King, Martin Luther Jr. Letter from Birmingham Jail. 1963.",
+    "url": "https://kinginstitute.stanford.edu/king-papers/documents/letter-birmingham-jail",
+    "impact": 96
+  }
+]
